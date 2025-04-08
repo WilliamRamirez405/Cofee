@@ -92,9 +92,9 @@
             body {
                 background-color: #C6E2E9;
             }
-            .content {
-                flex-direction: column;
-                gap: 10px;
+            .content{
+                flex-direction: row; /* Mantiene los elementos en fila como en el computador */
+                justify-content: space-between; /* Distribuye los elementos como en PC */
             }
         }
 
@@ -102,15 +102,10 @@
             body {
                 background-color: #FFE2CC;
             }
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .navbar a {
-                font-size: 16px;
-            }
-            .header h1 {
-                font-size: 24px;
+
+            .content {
+                flex-direction: column; /* Cambia la dirección del flexbox a columna */
+                align-items: center;    /* Centra los elementos en dispositivos pequeños */
             }
         }
     </style>
