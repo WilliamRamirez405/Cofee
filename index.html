@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strait Coffee</title>
     <style>
         body {
@@ -18,13 +18,14 @@
             padding: 30px;
             border: 3px solid #4C3639;
             display: none;
-            display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
         #home {
             display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .header {
@@ -88,29 +89,70 @@
             cursor: pointer;
         }
 
-        @media (max-width: 1200px) {
-            body {
-                background-color: #C6E2E9;
-            }
-            .content{
-                flex-direction: row; /* Mantiene los elementos en fila como en el computador */
-                justify-content: space-between; /* Distribuye los elementos como en PC */
-            }
+        .contact-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #4C3639;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #63B4C9;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: #4C3639;
+        }
+
+        .contact-video {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .description-box {
+            margin-top: 20px;
+            border: 2px solid #4C3639;
+            padding: 15px;
+            background-color: #fff;
         }
 
         @media (max-width: 800px) {
-            body {
-                background-color: #FFE2CC;
+            .contact-content {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .content {
-                flex-direction: column; /* Cambia la dirección del flexbox a columna */
-                align-items: center;    /* Centra los elementos en dispositivos pequeños */
+            .contact-video {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="header">
         <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/logo.png" alt="Strait Coffee Logo" class="logo" />
         <h1>Strait Coffee</h1>
@@ -125,7 +167,7 @@
     <div id="home" class="container">
         <div class="content">
             <div class="image-box">
-                <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/barista.jpg" alt="Coffee Making" style="width: 100%; height: auto;" />
+                <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/barista.jpg" alt="Coffee Making" style="width: 100%; height: auto;">
             </div>
             <div class="text-box">
                 <p>
@@ -139,8 +181,56 @@
 
     <div id="contact" class="container">
         <h2>Contact</h2>
-        <p>📍 Location: Vancouver, BC</p>
-        <p>📞 Phone: +1 (555) 123-4567</p>
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <p>Drop us a line and send us your questions!</p>
+
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Your name..." />
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Your last name..." />
+
+                <label>Which is your favourite store in town?</label><br />
+                <input type="radio" id="vancouver" name="store" value="Vancouver">
+                <label for="vancouver">Vancouver</label><br>
+                <input type="radio" id="surrey" name="store" value="Surrey">
+                <label for="surrey">Surrey</label><br>
+                <input type="radio" id="richmond" name="store" value="Richmond">
+                <label for="richmond">Richmond</label><br>
+
+                <label for="question">Question</label>
+                <textarea id="question" rows="5" placeholder="Tell us about it.."></textarea>
+
+                <button type="submit">Submit</button>
+            </div>
+
+            <!-- Video and Description -->
+            <div class="contact-video">
+                <video width="100%" controls>
+                    <source src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/contact.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="description-box">
+                    <p>
+                        Artisan coffee roasting is a marriage of science and sensibility. The science involves controlling 
+                        the roasting medium via the roaster's knowledge of the roasting machine, the raw product 
+                        (green beans), and the roaster’s visual and tasting sensibility.
+                    </p>
+                    <p>
+                        Distinguish, differentiate, define: these are the guiding words of a new generation of artisan 
+                        coffee growers who will influence the future of boutique coffee. Modeling the wine industry, 
+                        artisan growers are promoting their “terroir” and distinguishing themselves by finding ways 
+                        to differentiate their harvest. They are exerting more control over their coffee, defining it by 
+                        micro-region, varietal (coffee plant) and milling method. This approach is a radical departure 
+                        from the custom of selling one’s harvest to middlemen, who then mill and blend it anonymously 
+                        with other coffee from the region prior to export.
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="back-to-home">
             <a onclick="showSection('home')">⬅ Back to Home</a>
         </div>
@@ -148,8 +238,32 @@
 
     <div id="menu" class="container">
         <h2>Menu</h2>
-        <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/menu.png" alt="Menu" 
-            style="width: 100%; height: auto; border: 2px solid #4C3639;" />
+       
+            
+    <!-- Nuevos productos individuales -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+        <!-- Mocha -->
+        <div style="flex: 1 1 30%; max-width: 300px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/mocha.jpg" alt="Mocha" style="width: 100%; border-radius: 10px;">            <p><strong>Mocha</strong><br>Rich espresso with chocolate and steamed milk</p>
+        </div>
+
+        <!-- Latte -->
+        <div style="flex: 1 1 30%; max-width: 300px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/cap.jpg" alt="Latte" style="width: 100%; border-radius: 10px;">
+                <p><strong>Latte</strong><br>Smooth steamed milk with a shot of espresso</p>
+        </div>
+
+        <!-- Cappuccino -->
+        <div style="flex: 1 1 30%; max-width: 300px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/WilliamRamirez405/Cofee/main/espresso.jpg" alt="Cappuccino" style="width: 100%; border-radius: 10px;">
+            <p><strong>Cappuccino</strong><br>Equal parts espresso, steamed milk and foam</p>
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <a onclick="showSection('home')">⬅ Back to Home</a>
+    </div>
+</div>
         <div class="back-to-home">
             <a onclick="showSection('home')">⬅ Back to Home</a>
         </div>
@@ -163,8 +277,9 @@
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.container');
             sections.forEach(section => section.style.display = 'none');
-            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById(sectionId).style.display = 'flex';
         }
     </script>
+
 </body>
 </html>
